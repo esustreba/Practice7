@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/input"
+	xmlns:tns="http://www.example.org/input" elementFormDefault="qualified">
+	<xsd:element name="Тourist_vouchers">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Тourist_voucher"
+					type="tns:tourist_vousher" minOccurs="1" maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="tourist_vousher">
+		<xsd:sequence>
+			<xsd:element name="type" type="tns:type"/>
+			<xsd:element name="Stars" type="tns:Stars"/>
+			<xsd:element name="Country" type="tns:country"/>
+			<xsd:element name="Days" type="tns:Days"/>	
+			<xsd:element name="Transport" type="tns:Transport"/>
+			<xsd:element name="Rooms" type="tns:Room"/>
+			<xsd:element name="Meals" type="tns:Meals"/>
+			<xsd:element name="Coast" type="tns:Cost"/>	
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="type">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="weekend"/>
+            <xsd:enumeration value="tour"/>
+            <xsd:enumeration value="relaxation"/>
+            <xsd:enumeration value="pilgrimage"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+	
+	<xsd:simpleType name="country">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern
+			value="([а-яА-ЯёЁ][а-яА-ЯёЁ\s]*)|([A-Za-z][A-Za-z\s]*)" />
+	</xsd:restriction>
+</xsd:simpleType>
+	
+	<xsd:simpleType name="Days">
+	<xsd:restriction base="xsd:nonNegativeInteger">
+		<xsd:minExclusive value="2" />
+		<xsd:maxExclusive value="14" />
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="Transport">
+	<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Rail"/>
+            <xsd:enumeration value="Plane"/>
+            <xsd:enumeration value="Auto"/>
+            <xsd:enumeration value="Ship"/>
+		</xsd:restriction>
+</xsd:simpleType>
+
+
+	<xsd:simpleType name="Stars">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:minExclusive value="0" />
+			<xsd:maxExclusive value="6" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+		<xsd:simpleType name="Room">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Standart"/>
+            <xsd:enumeration value="Suite"/>
+            <xsd:enumeration value="Lux"/>
+            <xsd:enumeration value="Villa"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	   <xsd:simpleType name="Meals">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="OB"/>
+            <xsd:enumeration value="HB"/>
+            <xsd:enumeration value="HB"/>
+            <xsd:enumeration value="FB"/>
+            <xsd:enumeration value="AI"/>
+            <xsd:enumeration value="AI+"/>    
+            
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Cost">
+     <xsd:simpleContent>
+            <xsd:extension base="xsd:decimal">
+                <xsd:attribute name="Currency" type="tns:currency" use="required"/>
+            </xsd:extension>
+        </xsd:simpleContent>   
+    </xsd:complexType>
+    
+    <xsd:simpleType name="currency">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="EUR"/>
+            <xsd:enumeration value="USD"/>
+            <xsd:enumeration value="UAH"/>
+            <xsd:enumeration value="RUB"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+
+	
+
+</xsd:schema>
