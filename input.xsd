@@ -32,6 +32,25 @@
             <xsd:enumeration value="pilgrimage"/>
         </xsd:restriction>
     </xsd:simpleType>
+
+	<xsd:complexType name="hotelProps">
+		<xsd:sequence>
+			<xsd:element name="stars" type="tns:Stars"/>
+			<xsd:element name="meals" type="tns:Meals"/>
+			<xsd:element name="roomPlaces" type="tns:Room"/>
+			<xsd:element name="condition" type="tns:presenceSign"/>
+			<xsd:element name="TV" type="tns:presenceSign"/>
+			<xsd:element name="WIFI" type="tns:presenceSign"/>
+			<xsd:element name="freeParking" type="tns:presenceSign"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="presenceSign">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="+"/>
+			<xsd:enumeration value="-"/>
+		</xsd:restriction>
+	</xsd:simpleType>
 	
 	<xsd:simpleType name="country">
 	<xsd:restriction base="xsd:string">
@@ -77,10 +96,7 @@
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="OB"/>
             <xsd:enumeration value="HB"/>
-            <xsd:enumeration value="HB"/>
-            <xsd:enumeration value="FB"/>
             <xsd:enumeration value="AI"/>
-            <xsd:enumeration value="AI+"/>    
             
         </xsd:restriction>
     </xsd:simpleType>

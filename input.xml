@@ -1,35 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<tns:Тourist_vouchers xmlns:tns="http://www.example.org/input" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/input input.xsd ">
-  <tns:Тourist_voucher>
-    <tns:type>tour</tns:type>
-    <tns:Stars>3</tns:Stars>
-    <tns:Country>USA</tns:Country>
-    <tns:Days>7</tns:Days>
-    <tns:Transport>Plane</tns:Transport>
-    <tns:Rooms>Standart</tns:Rooms>
-    <tns:Meals>OB</tns:Meals>
-    <tns:Coast Currency="USD">2700.0</tns:Coast>
-  </tns:Тourist_voucher>
-  
-    <tns:Тourist_voucher>
-    <tns:type>tour</tns:type>
-    <tns:Stars>5</tns:Stars>
-    <tns:Country>Egypt</tns:Country>
-    <tns:Days>12</tns:Days>
-    <tns:Transport>Plane</tns:Transport>
-    <tns:Rooms>Lux</tns:Rooms>
-    <tns:Meals>AI+</tns:Meals>
-    <tns:Coast Currency="USD">1700.0</tns:Coast>
-  </tns:Тourist_voucher>
-  
-    <tns:Тourist_voucher>
-    <tns:type>weekend</tns:type>
-    <tns:Stars>3</tns:Stars>
-    <tns:Country>Czech</tns:Country>
-    <tns:Days>3</tns:Days>
-    <tns:Transport>Auto</tns:Transport>
-    <tns:Rooms>Standart</tns:Rooms>
-    <tns:Meals>HB</tns:Meals>
-    <tns:Coast Currency="EUR">900.0</tns:Coast>
-  </tns:Тourist_voucher>
-</tns:Тourist_vouchers>
+<inp:Тourist_vouchers xmlns:inp="http://www.example.org/input">
+  <!--1 or more repetitions:-->
+  <inp:Тourist_voucher>
+    <inp:type>relaxation</inp:type>
+    <inp:Stars>5</inp:Stars>
+    <inp:Country>USA</inp:Country>
+    <inp:Days>13</inp:Days>
+    <inp:Transport>Rail</inp:Transport>
+    <inp:Rooms>Suite</inp:Rooms>
+    <inp:Meals>AI</inp:Meals>
+    <inp:Coast Currency="EUR">1000.00</inp:Coast>
+  </inp:Тourist_voucher>
+</inp:Тourist_vouchers>
