@@ -4,7 +4,9 @@
       <root url="file://$USER_HOME$/Downloads/jdom.jar" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Downloads/jdom.jar/jdom.jar!/" />
+    </SOURCES>
     <jarDirectory url="file://$USER_HOME$/Downloads/jdom.jar" recursive="false" />
   </library>
 </component>

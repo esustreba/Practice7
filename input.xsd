@@ -6,21 +6,21 @@
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element name="Тourist_voucher"
-					type="tns:tourist_vousher" minOccurs="1" maxOccurs="unbounded" />
+					type="tns:vousher" minOccurs="1" maxOccurs="unbounded" />
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
 
-	<xsd:complexType name="tourist_vousher">
+	<xsd:complexType name="vousher">
 		<xsd:sequence>
-			<xsd:element name="type" type="tns:type"/>
-			<xsd:element name="Stars" type="tns:Stars"/>
-			<xsd:element name="Country" type="tns:country"/>
-			<xsd:element name="Days" type="tns:Days"/>	
-			<xsd:element name="Transport" type="tns:Transport"/>
-			<xsd:element name="Rooms" type="tns:Room"/>
-			<xsd:element name="Meals" type="tns:Meals"/>
-			<xsd:element name="Coast" type="tns:Cost"/>	
+			<xsd:element name="type" type="tns:type" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="Stars" type="tns:Stars"  minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Country" type="tns:country" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Days" type="tns:Days" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Transport" type="tns:Transport" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Rooms" type="tns:Room" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Meals" type="tns:Meals" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Coast" type="tns:Cost" minOccurs="1" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	
@@ -33,24 +33,7 @@
         </xsd:restriction>
     </xsd:simpleType>
 
-	<xsd:complexType name="hotelProps">
-		<xsd:sequence>
-			<xsd:element name="stars" type="tns:Stars"/>
-			<xsd:element name="meals" type="tns:Meals"/>
-			<xsd:element name="roomPlaces" type="tns:Room"/>
-			<xsd:element name="condition" type="tns:presenceSign"/>
-			<xsd:element name="TV" type="tns:presenceSign"/>
-			<xsd:element name="WIFI" type="tns:presenceSign"/>
-			<xsd:element name="freeParking" type="tns:presenceSign"/>
-		</xsd:sequence>
-	</xsd:complexType>
 
-	<xsd:simpleType name="presenceSign">
-		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="+"/>
-			<xsd:enumeration value="-"/>
-		</xsd:restriction>
-	</xsd:simpleType>
 	
 	<xsd:simpleType name="country">
 	<xsd:restriction base="xsd:string">
