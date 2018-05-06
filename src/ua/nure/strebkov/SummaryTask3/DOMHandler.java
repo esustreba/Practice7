@@ -1,26 +1,19 @@
 package ua.nure.strebkov.SummaryTask3;
 
-import org.jdom.Attribute;
-import org.jdom.Content;
-import org.jdom.Document;
-import org.jdom.Element;
+import org.jdom.*;
 import org.jdom.input.SAXBuilder;
 import ua.nure.strebkov.SummaryTask3.voucher.*;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DOMHandler {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JDOMException, IOException {
 
         String fileName = "input.xml";
-        if (!XMLValidator.isValidXml(fileName)) {
-            System.out.println("File is not valid, please, provide valid xml file");
-            return;
-        }
-        try {
             SAXBuilder builder = new SAXBuilder();
             Document document = builder.build(fileName);
             Element root = document.getRootElement();
@@ -28,14 +21,9 @@ public class DOMHandler {
             for (TouristVousher touristVoucher : vouchers){
                 System.out.println(touristVoucher);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
     }
 
-    private static List<TouristVousher> getTouristVouchers(Element root) {
+    private static List<TouristVousher> getTouristVouchers(Element root) throws IndexOutOfBoundsException {
         List<TouristVousher> vouchers = new ArrayList<>();
         for (Element element : (List<Element>) root.getChildren()){
             TouristVousher currentVoucher = new TouristVousher();

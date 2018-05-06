@@ -4,10 +4,12 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import ua.nure.strebkov.SummaryTask3.voucher.*;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -87,24 +89,19 @@ public class SAXHandler extends DefaultHandler implements SAXConstant {
         }
     }
 
-    public static void main(String[] args) {
-        try {
+    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
+
             SAXParser parser =
                     SAXParserFactory.newInstance().newSAXParser();
             SAXHandler saxHandler = new SAXHandler();
             String fileAddress = "C:\\Users\\Streba\\IdeaProjects\\Practice7\\input.xml";
-            if (!XMLValidator.isValidXml(fileAddress)){
-                System.out.println("File is not valid, please, provide valid xml file");
-                return;
-            }
+
             parser.parse(fileAddress, saxHandler);
 
             List<TouristVousher> voucherList = saxHandler.getVouchers();
             for (TouristVousher voucher : voucherList){
                 System.out.println(voucher);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 }
