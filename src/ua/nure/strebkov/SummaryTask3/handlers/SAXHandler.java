@@ -1,109 +1,133 @@
 package ua.nure.strebkov.SummaryTask3.handlers;
-
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
-import ua.nure.strebkov.SummaryTask3.constants.Constants;
-import ua.nure.strebkov.SummaryTask3.constants.XML;
-import ua.nure.strebkov.SummaryTask3.entity.*;
+import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import java.io.IOException;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+import ua.nure.strebkov.SummaryTask3.constants.Constants;
+import ua.nure.strebkov.SummaryTask3.entity.*;
+
 
 public class SAXHandler extends DefaultHandler {
-    private TouristVouchers touristVouchers;
-    private TouristVousher touristVousher;
-    private Cost cost;
 
+    private String xmlFileName;
+
+    // current element name holder
     private String currentElement;
-    private String fileName;
 
-    public SAXHandler(String fileName) {
-        this.fileName = fileName;
+    // main container
+
+
+    public SAXHandler(String xmlFileName) {
+        this.xmlFileName = xmlFileName;
     }
 
-    public void parse(boolean validate) throws ParserConfigurationException, SAXException, IOException {
-        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-        saxParserFactory.setNamespaceAware(true);
+    /**
+     * Parses XML document.
+     *
+     * @param validate
+     *            If true validate XML document against its XML schema. With
+     *            this parameter it is possible make parser validating.
+     */
+    public void parse(boolean validate)
+            throws ParserConfigurationException, SAXException, IOException {
+
+        // obtain Practice7 parser factory
+        SAXParserFactory factory = SAXParserFactory.newInstance();
+
+        // XML document contains namespaces
+        factory.setNamespaceAware(true);
+
+        // set validation
         if (validate) {
-            saxParserFactory.setFeature(Constants.FEATURE_TURN_VALIDATION_ON, true);
-            saxParserFactory.setFeature(Constants.FEATURE_TURN_SCHEMA_VALIDATION_ON, true);
+            factory.setFeature(Constants.FEATURE_TURN_VALIDATION_ON, true);
+            factory.setFeature(Constants.FEATURE_TURN_SCHEMA_VALIDATION_ON, true);
         }
-        SAXParser saxParser = saxParserFactory.newSAXParser();
-        saxParser.parse(fileName, this);
+
+        SAXParser parser = factory.newSAXParser();
+        parser.parse(xmlFileName, this);
     }
 
-    public TouristVousher getTouristVousher() {
-        return touristVousher;
-    }
+    // ///////////////////////////////////////////////////////////
+    // ERROR HANDLER IMPLEMENTATION
+    // ///////////////////////////////////////////////////////////
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+    public void error(org.xml.sax.SAXParseException e) throws SAXException {
+        // if XML document not valid just throw exception
+        throw e;
+    }
+
+
+
+
+    @Override
+    public void startElement(String uri, String localName, String qName,
+                             Attributes attributes) throws SAXException {
+
         currentElement = localName;
 
-        if (XML.TOURISTSVOUCHERS.value().equals(currentElement)) {
-            touristVouchers = new TouristVouchers();
-            return;
-        }
-        if (XML.TOURISTSVOUCHER.value().equals(currentElement)) {
-            touristVouchers = new TouristVouchers();
-            return;
-        }
-        if (XML.COST.value().equals(currentElement)) {
-            cost = new Cost();
-            return;
-        }
+
     }
 
     @Override
-    public void characters(char[] ch, int start, int length) throws SAXException {
-        String element = new String(ch, start, length).trim();
+    public void characters(char[] ch, int start, int length)
+            throws SAXException {
 
-        if (element.isEmpty()) {
-            return;
-        }
+        String elementText = new String(ch, start, length).trim();
 
-        if (XML.TYPE.value().equals(currentElement)) {
-            touristVousher.setType(element);
-
-        }
-        if (XML.TRANSPORT.value().equals(currentElement)) {
-            touristVousher.setTransport(element);
-
-        }
-        if (XML.MEALS.value().equals(currentElement)) {
-            touristVousher.setMeals(element);
-
-        }
-        if (XML.ROOM.value().equals(currentElement)) {
-            touristVousher.setRooms(element);
-
-        }
-        if (XML.COST.value().equals(currentElement)) {
-            touristVousher.setCoast(element);
+        // return if content is empty
+        if (elementText.isEmpty()) {
             return;
         }
 
 
-        }
-
-
-
-    @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (XML.TOURISTSVOUCHER.value().equals(localName)) {
-            touristVouchers.getTouristVoucher().add(touristVousher);
-            return;
-        }
-
-        if (XML.COST.value().equals(localName)) {
-            touristVousher.setCoast(cost);
-            cost = null;
-            return;
-        }
     }
 
+    @Override
+    public void endElement(String uri, String localName, String qName)
+            throws SAXException {
 
+
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        // try to parse valid XML file (success)
+        SAXHandler saxContr = new SAXHandler(Constants.VALID_XML_FILE);
+
+        // do parse with validation on (success)
+        saxContr.parse(true);
+
+
+        // we have Test object at this point:
+        System.out.println("====================================");
+        //System.out.print("Here is the test: \n" + test);
+        System.out.println("====================================");
+
+        // now try to parse NOT valid XML (failed)
+        saxContr = new SAXHandler(Constants.INVALID_XML_FILE);
+        try {
+            // do parse with validation on (failed)
+            saxContr.parse(true);
+        } catch (Exception ex) {
+            System.err.println("====================================");
+            System.err.println("Validation is failed:\n" + ex.getMessage());
+            //System.err.println("Try to print test object:" + saxContr.getTest());
+            System.err.println("====================================");
+        }
+
+        // and now try to parse NOT valid XML with validation off (success)
+        saxContr.parse(false);
+
+        // we have Test object at this point:
+        System.out.println("====================================");
+        //System.out.print("Here is the test: \n" + saxContr.getTest());
+        System.out.println("====================================");
+    }
 }
