@@ -13,7 +13,7 @@ import ua.nure.strebkov.SummaryTask3.constants.Constants;
 import ua.nure.strebkov.SummaryTask3.entity.*;
 
 
-public class SAXHandler extends DefaultHandler {
+public class SAXController extends DefaultHandler {
 
     private String xmlFileName;
 
@@ -21,9 +21,14 @@ public class SAXHandler extends DefaultHandler {
     private String currentElement;
 
     // main container
+    private Tourist_vouchers tourist_vouchers;
+
+    private Voucher voucher;
 
 
-    public SAXHandler(String xmlFileName) {
+
+
+    public SAXController(String xmlFileName) {
         this.xmlFileName = xmlFileName;
     }
 
@@ -99,7 +104,7 @@ public class SAXHandler extends DefaultHandler {
     public static void main(String[] args) throws Exception {
 
         // try to parse valid XML file (success)
-        SAXHandler saxContr = new SAXHandler(Constants.VALID_XML_FILE);
+        SAXController saxContr = new SAXController(Constants.VALID_XML_FILE);
 
         // do parse with validation on (success)
         saxContr.parse(true);
@@ -111,7 +116,7 @@ public class SAXHandler extends DefaultHandler {
         System.out.println("====================================");
 
         // now try to parse NOT valid XML (failed)
-        saxContr = new SAXHandler(Constants.INVALID_XML_FILE);
+        saxContr = new SAXController(Constants.INVALID_XML_FILE);
         try {
             // do parse with validation on (failed)
             saxContr.parse(true);

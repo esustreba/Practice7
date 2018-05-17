@@ -3,13 +3,16 @@ package ua.nure.strebkov.SummaryTask3.constants;
 
 public enum XML {
     TOURISTSVOUCHERS("TouristVouchers"),
-    TOURISTSVOUCHER("TouristVousher"),
+    VOUCHER("Voucher"),
     COST("Cost"),
     CURRENCY("Currency"),
-    MEALS("Meals"),
+    MEAL("Meal"),
     ROOM("Room"),
     TRANSPORT("Transport"),
-    TYPE("Type");
+    TYPE("Type"),
+    STARS("Stars"),
+    COUNTRY("Country"),
+    DAYS("Days");
 
     private String value;
 

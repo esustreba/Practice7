@@ -1,4 +1,6 @@
-package ua.nure.strebkov.SummaryTask3.util;
+package ua.nure.strebkov.SummaryTask3;
+
+import ua.nure.strebkov.SummaryTask3.Main;
 
 public class Demo {
     /**
