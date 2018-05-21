@@ -1,25 +1,22 @@
 package ua.nure.strebkov.SummaryTask3.entity;
 
-public class Voucher {
+public class Hotel {
 
-    private String type;
     private String stars;
-    private String country;
     private String days;
     private String transport;
     private String room;
     private String meal;
     private Cost cost;
 
-    Voucher () {
+    public Hotel () {
 
     }
 
-    public Voucher(String type, String stars, String country, String days,
+    public Hotel(String stars, String days,
                    String transport, String room, String meal, Cost cost) {
-        this.type = type;
+
         this.stars = stars;
-        this.country = country;
         this.days = days;
         this.transport = transport;
         this.room = room;
@@ -27,13 +24,7 @@ public class Voucher {
         this.cost = cost;
     }
 
-    public String getType() {
-        return type;
-    }
 
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public String getStars() {
         return stars;
@@ -41,14 +32,6 @@ public class Voucher {
 
     public void setStars(String stars) {
         this.stars = stars;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
     public String getDays() {
@@ -93,10 +76,8 @@ public class Voucher {
 
     @Override
     public String toString() {
-        return "Voucher{" +
-                "type='" + type + '\'' +
+        return "Hotel{" +
                 ", stars='" + stars + '\'' +
-                ", country='" + country + '\'' +
                 ", days='" + days + '\'' +
                 ", transport='" + transport + '\'' +
                 ", room='" + room + '\'' +

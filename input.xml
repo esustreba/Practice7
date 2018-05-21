@@ -1,13 +1,11 @@
-<inp:Тourist_vouchers xmlns:inp="http://www.example.org/input">
-  <!--1 or more repetitions:-->
-  <inp:Тourist_voucher>
-    <inp:type>relaxation</inp:type>
-    <inp:Stars>5</inp:Stars>
-    <inp:Country>USA</inp:Country>
-    <inp:Days>13</inp:Days>
-    <inp:Transport>Rail</inp:Transport>
-    <inp:Rooms>Suite</inp:Rooms>
-    <inp:Meals>AI</inp:Meals>
-    <inp:Coast Currency="EUR">1000.00</inp:Coast>
-  </inp:Тourist_voucher>
-</inp:Тourist_vouchers>
+<?xml version="1.0" encoding="utf-8"?>
+<Тourist_vouchers>
+  <Тourist_vouchers>
+    <Stars>3</Stars>
+    <Days>13</Days>
+    <Transport>Rail</Transport>
+    <Room>Standart</Room>
+    <Meal>OB</Meal>
+    <Cost Currency="EUR">123.45</Cost>
+  </Тourist_vouchers>
+</Тourist_vouchers>

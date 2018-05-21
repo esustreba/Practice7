@@ -6,41 +6,22 @@
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element name="Тourist_vouchers"
-					type="tns:voucher" minOccurs="1" maxOccurs="unbounded" />
+					type="tns:hotel" minOccurs="1" maxOccurs="unbounded" />
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
 
-	<xsd:complexType name="voucher">
+	<xsd:complexType name="hotel">
 		<xsd:sequence>
-			<xsd:element name="type" type="tns:type" minOccurs="1" maxOccurs="1" />
 			<xsd:element name="Stars" type="tns:Stars"  minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="Country" type="tns:country" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="Days" type="tns:Days" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="Transport" type="tns:Transport" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="Rooms" type="tns:Room" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="Meals" type="tns:Meals" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="Coast" type="tns:Cost" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Room" type="tns:Room" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Meal" type="tns:Meal" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Cost" type="tns:Cost" minOccurs="1" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
-	
-	<xsd:simpleType name="type">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="weekend"/>
-            <xsd:enumeration value="tour"/>
-            <xsd:enumeration value="relaxation"/>
-            <xsd:enumeration value="pilgrimage"/>
-        </xsd:restriction>
-    </xsd:simpleType>
 
-
-	
-	<xsd:simpleType name="country">
-	<xsd:restriction base="xsd:string">
-		<xsd:pattern
-			value="([а-яА-ЯёЁ][а-яА-ЯёЁ\s]*)|([A-Za-z][A-Za-z\s]*)" />
-	</xsd:restriction>
-</xsd:simpleType>
 	
 	<xsd:simpleType name="Days">
 	<xsd:restriction base="xsd:nonNegativeInteger">
@@ -75,7 +56,7 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 	
-	   <xsd:simpleType name="Meals">
+	   <xsd:simpleType name="Meal">
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="OB"/>
             <xsd:enumeration value="HB"/>
