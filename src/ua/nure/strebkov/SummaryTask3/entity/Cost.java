@@ -4,12 +4,7 @@ public class Cost {
 	
 	private Integer cost;
 	
-	@Override
-	public String toString() {
-		
-		return cost.toString();
-	}
-	
+
 	public Cost(int cost) {
 		this.cost = cost;
 	}
