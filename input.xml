@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Тourist_vouchers>
-  <Тourist_vouchers>
-    <Stars>3</Stars>
-    <Days>13</Days>
-    <Transport>Rail</Transport>
-    <Room>Standart</Room>
-    <Meal>OB</Meal>
-    <Cost Currency="EUR">123.45</Cost>
-  </Тourist_vouchers>
-</Тourist_vouchers>
+<tns:Тourist_vouchers xmlns:tns="http://www.example.org/input"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://www.example.org/input input.xsd">
+  <!--1 or more repetitions:-->
+  <tns:hotel>
+    <tns:Stars>5</tns:Stars>
+    <tns:Days>13</tns:Days>
+    <tns:Transport>Auto</tns:Transport>
+    <tns:Room>Standart</tns:Room>
+    <tns:Meal>HB</tns:Meal>
+    <tns:Cost Currency="USD">1000.00</tns:Cost>
+  </tns:hotel>
+</tns:Тourist_vouchers>

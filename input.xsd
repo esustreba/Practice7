@@ -5,7 +5,7 @@
 	<xsd:element name="Тourist_vouchers">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element name="Тourist_vouchers"
+				<xsd:element name="hotel"
 					type="tns:hotel" minOccurs="1" maxOccurs="unbounded" />
 			</xsd:sequence>
 		</xsd:complexType>
