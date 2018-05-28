@@ -1,5 +1,8 @@
 package ua.nure.strebkov.SummaryTask3.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Hotel {
 
     private String stars;
@@ -8,6 +11,7 @@ public class Hotel {
     private String room;
     private String meal;
     private Cost cost;
+    private List<Cost> costs;
 
     public Hotel () {
 
@@ -22,6 +26,13 @@ public class Hotel {
         this.room = room;
         this.meal = meal;
         this.cost = cost;
+    }
+
+    public List<Cost> getCosts() {
+        if(costs == null) {
+            costs = new ArrayList<>();
+        }
+        return costs;
     }
 
 
