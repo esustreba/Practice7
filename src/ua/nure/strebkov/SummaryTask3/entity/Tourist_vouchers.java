@@ -14,6 +14,10 @@ public class Tourist_vouchers {
         return hotels;
     }
 
+    public void setHotels(String hotel) {
+        this.hotels = hotels;
+    }
+
     @Override
     public String toString() {
         if (hotels == null || hotels.size() == 0) {
