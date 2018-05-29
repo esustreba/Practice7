@@ -3,8 +3,25 @@
                       xsi:schemaLocation="http://www.example.org/input input.xsd">
   <!--1 or more repetitions:-->
   <tns:hotel>
-    <tns:Stars>5</tns:Stars>
-    <tns:Days>13</tns:Days>
+    <tns:Stars>1</tns:Stars>
+    <tns:Days>3</tns:Days>
+    <tns:Transport>Auto</tns:Transport>
+    <tns:Room>Standart</tns:Room>
+    <tns:Meal>HB</tns:Meal>
+    <tns:Cost Currency="USD">1000.00</tns:Cost>
+    
+  </tns:hotel>
+   <tns:hotel>
+    <tns:Stars>2</tns:Stars>
+    <tns:Days>3</tns:Days>
+    <tns:Transport>Auto</tns:Transport>
+    <tns:Room>Standart</tns:Room>
+    <tns:Meal>HB</tns:Meal>
+    <tns:Cost Currency="USD">1000.00</tns:Cost>
+  </tns:hotel>
+   <tns:hotel>
+    <tns:Stars>3</tns:Stars>
+    <tns:Days>3</tns:Days>
     <tns:Transport>Auto</tns:Transport>
     <tns:Room>Standart</tns:Room>
     <tns:Meal>HB</tns:Meal>
